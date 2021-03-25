@@ -1,0 +1,67 @@
+"---
+documentclass: article
+mainfont: Arial
+monofont: Fira Code
+fontsize: 12pt
+geometry:
+- top=25mm
+- bottom=30mm
+- footskip=22mm
+- lmargin=18mm
+-	rmargin=18mm
+#- showframe
+papersize: letter
+numbersections: true
+autoEqnLabels: true
+header-includes: |
+	\usepackage{background}
+	\backgroundsetup{
+		scale=1,
+		color=black,
+		opacity=1,
+		angle=0,
+		contents={%
+		\includegraphics[width=\paperwidth,height=\paperheight]{bg_school.png}
+		}%
+	}
+	\usepackage{float}
+	\let\origfigure\figure
+	\let\endorigfigure\endffigure
+	\renewenvironment{figure}[1][2] {
+		\expandafter\origfigure\expandafter[H]
+	} {
+		\endorigfigure
+	}
+	\usepackage{xcolor,etoolbox} 
+	\makeatletter 
+	\patchcmd{\ps@plain}{\thepage}{\textcolor{white}{\thepage}}{}{}
+	\makeatother
+	\definecolor{gray}{gray}{0.5}
+lang: es-MX
+---
+
+\pagestyle{plain}
+\begin{titlepage}
+\centering
+\vspace*{70mm}
+\huge{\bfseries{$name}}\\\\
+[2mm]
+\textit{\small{\textcolor{gray}{\bfseries{Materia:} $folder}}}\\\\
+[4mm]
+\small{\bfseries Docente:} \normalsize{$profesor}\\\\
+[5mm]
+\small{\bfseries Alumno:}\\\\ \large{$author}\\\\
+[2mm]
+\small{\bfseries Matricula:} $authorNum\\\\
+[5mm]
+\small{\bfseries Fecha:} $date\\\\
+\vspace*{\fill}
+\end{titlepage}
+\tableofcontents
+\listoffigures
+\listoftables
+\setcounter{page}{2}
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+\newpage
+"

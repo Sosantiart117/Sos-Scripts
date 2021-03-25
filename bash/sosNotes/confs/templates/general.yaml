@@ -1,0 +1,35 @@
+"
+---
+#title: Algo
+#subtitle: Algo-mas
+author: $author
+date: \"$date\"
+#lot: true # list of tables
+#lof: true # list of figures
+#toc: true # table of contents
+#toc-title: Contenidos
+#toc-depth: 1
+documentclass: article
+mainfont: Arial
+monofont: Fira Code
+fontsize: 12pt
+geometry:
+- top=25mm
+- bottom=25mm
+- inner=20mm
+-	outer=20mm
+papersize: letter
+numbersections: true
+autoEqnLabels: true
+header-includes: |
+	\usepackage{float}
+	\let\origfigure\figure
+	\let\endorigfigure\endffigure
+	\renewenvironment{figure}[1][2] {
+		\expandafter\origfigure\expandafter[H]
+	} {
+		\endorigfigure
+	}
+lang: es-MX
+---
+"
